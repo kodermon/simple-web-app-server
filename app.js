@@ -1,4 +1,6 @@
 require("dotenv").config();
+const cors = require("cors");
+const corsMw = cors();
 
 const express = require("express");
 const app = express();
@@ -11,6 +13,8 @@ const profileRouter = require("./routes/profileRoutes");
 
 // middleware
 app.use(express.json());
+app.options("*", corsMw);
+app.use(corsMw);
 
 // routes
 app.use("/api/auth", userRouter);
