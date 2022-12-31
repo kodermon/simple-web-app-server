@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://illustrious-conkies-12dcd1.netlify.app",
+      "https://flourishing-cobbler-8e46ce.netlify.app",
       "https://simple-web-app.onrender.com",
     ],
     credentials: true,
