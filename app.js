@@ -17,8 +17,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://simple-web-app-server.onrender.com",
-      "https://simple-web-app-server.onrender.com",
+      "https://vocal-bavarois-0b00be.netlify.app",
+      "https://simple-web-app.onrender.com",
     ],
     credentials: true,
   })
