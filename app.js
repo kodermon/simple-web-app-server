@@ -1,6 +1,5 @@
 require("dotenv").config();
 const cors = require("cors");
-const corsMw = cors();
 
 const express = require("express");
 const app = express();
@@ -13,17 +12,20 @@ const profileRouter = require("./routes/profileRoutes");
 
 // middleware
 app.use(express.json());
-app.options("*", corsMw);
-app.use(corsMw);
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://simple-web-app-server.onrender.com",
+      "https://simple-web-app-server.onrender.com",
+    ],
+    credentials: true,
+  })
+);
+
+// app.options("*", corsMw);
+// app.use(corsMw);
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header(
